@@ -1,0 +1,17 @@
+FROM golang:1.24-alpine
+WORKDIR /app
+COPY . .
+RUN go mod download
+RUN go build -o app .
+EXPOSE 1234
+CMD  ["./app"]
+
+
+# docker file we write instructions > to create image >  we run containers
+
+
+
+# created docker file
+# run the docker file  docker build .
+# we get the imaage hash 
+# run the image docker run hash

@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    container_name: lucky
+    ports:
+      - "1234:1234"
+  mysqlDB:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: employees
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass
+volumes:
+  mysql_data:
+    driver: local
+
+
